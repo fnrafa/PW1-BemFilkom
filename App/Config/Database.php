@@ -3,6 +3,7 @@
 class Database
 {
     private PDO $conn;
+
     public function __construct()
     {
         $this->startConnection();
@@ -19,7 +20,7 @@ class Database
             $this->conn = new PDO("mysql:host=$sqlHost;dbname=$sqlName", $sqlUser, $sqlPass);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            throw new Error($e->getMessage());
+            loadView('error.error', $e);
         }
     }
 
@@ -28,5 +29,3 @@ class Database
         return $this->conn;
     }
 }
-
-

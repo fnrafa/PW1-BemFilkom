@@ -1,13 +1,13 @@
 <html lang="en">
 <head>
-    <title>Login | BemFilkom</title>
+    <title>Program | BemFilkom</title>
     <link rel="stylesheet" href="../Public/css/main.css">
 </head>
 <body>
 <div class="container">
     <div class="content">
         <form class="form" action="/login" method="post">
-            <h2>Welcome, User!</h2>
+            <h2>Welcome, <?= $_COOKIE['name'] ?>!</h2>
             <label>
                 <input type="text" name="nim" placeholder="Nim">
             </label>

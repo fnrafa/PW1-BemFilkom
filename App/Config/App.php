@@ -1,7 +1,10 @@
 <?php
 require __DIR__ . "/config.php";
 require __DIR__ . "/database.php";
+require __DIR__ . "/View.php";
 require __DIR__ . "/../Route/route.php";
+require __DIR__ . "/../Middleware/Authentication.php";
+require __DIR__ . "/../Middleware/Authorization.php";
 
 class App
 {
@@ -16,7 +19,8 @@ class App
     public function start(): void
     {
         new Config();
-        //new Database();
+        new View();
+        new Database();
         new Route($this->req);
     }
 }
